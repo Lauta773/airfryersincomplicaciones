@@ -3,12 +3,9 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Airfryer sin complicaciones | 120 recetas + 5 bonos",
+  title: "Airfryer sin complicaciones | +120 recetas y 5 bonos",
   description:
-    "Descubrí más de 180 recetas, un menú de 30 días y 5 bonos para aprovechar tu airfryer de verdad.",
-  other: {
-    "codex-preview": "development",
-  },
+    "Más de 120 recetas, un menú de 30 días y 5 bonos para cocinar variado, conocer los tiempos correctos y aprovechar tu airfryer.",
 };
 
 export default function RootLayout({

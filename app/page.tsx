@@ -1,4 +1,5 @@
 import CheckoutLink from "./CheckoutLink";
+import MotionEffects from "./MotionEffects";
 
 const CHECKOUT = "https://pay.hotmart.com/K107213143H";
 
@@ -58,6 +59,30 @@ const bonuses = [
   },
 ];
 
+const communityVoices = [
+  {
+    initials: "01",
+    name: "Más variedad",
+    label: "Necesidad frecuente",
+    quote:
+      "Quiero dejar de preparar siempre papas y tener opciones claras para toda la semana.",
+  },
+  {
+    initials: "02",
+    name: "Cocinar con confianza",
+    label: "Necesidad frecuente",
+    quote:
+      "Lo que más necesito es saber el tiempo y la temperatura sin estar adivinando.",
+  },
+  {
+    initials: "03",
+    name: "Organizar la semana",
+    label: "Necesidad frecuente",
+    quote:
+      "Tener un menú y las listas de compras juntas me ayudaría muchísimo a resolver cada día.",
+  },
+];
+
 function BuyButton({
   children,
   className = "",
@@ -76,6 +101,8 @@ function BuyButton({
 export default function Home() {
   return (
     <main>
+      <MotionEffects />
+      <div className="scroll-progress" aria-hidden="true" />
       <div className="offer-bar">
         <span>OFERTA DE LANZAMIENTO</span>
         <strong>82% OFF</strong>
@@ -84,7 +111,7 @@ export default function Home() {
 
       <section className="hero" id="inicio">
         <div className="shell hero-grid">
-          <div className="hero-copy">
+          <div className="hero-copy" data-reveal>
             <p className="eyebrow">COLECCIÓN DIGITAL + 5 BONOS</p>
             <h1>
               Dejá de usar tu airfryer para hacer <em>siempre lo mismo.</em>
@@ -126,7 +153,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="hero-visual" aria-label="Mockup del ebook Airfryer sin complicaciones">
+          <div className="hero-visual" data-reveal data-reveal-delay="1" aria-label="Mockup del ebook Airfryer sin complicaciones">
             <span className="bonus-bubble">+5 BONOS</span>
             <span className="recipe-bubble">120 RECETAS</span>
             <img
@@ -140,24 +167,37 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="trust-ribbon" aria-label="Ventajas de la compra">
+        <div className="trust-track">
+          <span>✓ ACCESO INMEDIATO</span>
+          <span>✓ 100% DIGITAL EN PDF</span>
+          <span>✓ PAGO SEGURO POR HOTMART</span>
+          <span>✓ CELULAR, TABLET Y COMPUTADORA</span>
+          <span aria-hidden="true">✓ ACCESO INMEDIATO</span>
+          <span aria-hidden="true">✓ 100% DIGITAL EN PDF</span>
+          <span aria-hidden="true">✓ PAGO SEGURO POR HOTMART</span>
+          <span aria-hidden="true">✓ CELULAR, TABLET Y COMPUTADORA</span>
+        </div>
+      </div>
+
       <section className="quick-win">
         <div className="shell">
-          <div className="section-heading compact">
+          <div className="section-heading compact" data-reveal>
             <p className="eyebrow">¿TE SUENA FAMILIAR?</p>
             <h2>Si tu airfryer hace siempre lo mismo, no es culpa del equipo.</h2>
           </div>
           <div className="voice-grid">
-            <article>
+            <article data-reveal>
               <span className="voice-icon">01</span>
               <p>“La tengo, pero termino haciendo papas o nuggets.”</p>
               <small>Situación frecuente</small>
             </article>
-            <article>
+            <article data-reveal data-reveal-delay="1">
               <span className="voice-icon">02</span>
               <p>“Nunca sé qué tiempo y temperatura usar.”</p>
               <small>Situación frecuente</small>
             </article>
-            <article>
+            <article data-reveal data-reveal-delay="2">
               <span className="voice-icon">03</span>
               <p>“Quiero comer variado sin pasar horas en la cocina.”</p>
               <small>Situación frecuente</small>
@@ -167,12 +207,25 @@ export default function Home() {
             Este pack reúne <strong>recetas, planificación y guías rápidas</strong> para que
             cocinar deje de ser improvisar.
           </p>
+          <div className="before-after" data-reveal>
+            <div className="before-box">
+              <small>ANTES</small>
+              <strong>Improvisás cada comida</strong>
+              <span>Repetís recetas y dudás con la cocción.</span>
+            </div>
+            <div className="change-arrow" aria-hidden="true">→</div>
+            <div className="after-box">
+              <small>CON LA GUÍA</small>
+              <strong>Elegís y cocinás</strong>
+              <span>Tenés ideas, pasos, tiempos y temperaturas.</span>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="inside" id="contenido">
         <div className="shell">
-          <div className="section-heading">
+          <div className="section-heading" data-reveal>
             <p className="eyebrow">RECETAS REALES DEL EBOOK</p>
             <h2>Elegí qué querés comer. El paso a paso ya está resuelto.</h2>
             <p>
@@ -182,8 +235,8 @@ export default function Home() {
           </div>
 
           <div className="recipe-grid">
-            {recipes.map((recipe) => (
-              <article className="recipe-card" key={recipe.title}>
+            {recipes.map((recipe, index) => (
+              <article className="recipe-card" data-reveal data-reveal-delay={index % 4} key={recipe.title}>
                 <div className="recipe-image">
                   <img
                     src={recipe.src}
@@ -207,7 +260,7 @@ export default function Home() {
 
       <section className="bonuses" id="bonos">
         <div className="shell">
-          <div className="bonus-heading">
+          <div className="bonus-heading" data-reveal>
             <div>
               <p className="eyebrow">GRATIS CON TU COMPRA</p>
               <h2>No recibís un solo ebook. Recibís un sistema completo.</h2>
@@ -219,8 +272,8 @@ export default function Home() {
           </div>
 
           <div className="bonus-grid">
-            {bonuses.map((bonus) => (
-              <article className="bonus-card" key={bonus.number}>
+            {bonuses.map((bonus, index) => (
+              <article className="bonus-card" data-reveal data-reveal-delay={index % 2} key={bonus.number}>
                 <div className="bonus-cover">
                   <span>BONO {bonus.number}</span>
                   <img
@@ -241,8 +294,51 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="reviews" id="opiniones">
+        <div className="shell">
+          <div className="section-heading" data-reveal>
+            <p className="eyebrow">LO QUE MÁS BUSCA NUESTRA COMUNIDAD</p>
+            <h2>Más variedad, más seguridad y menos tiempo pensando qué cocinar.</h2>
+            <p>
+              Estas son algunas de las necesidades que más se repiten entre quienes
+              quieren aprovechar mejor su airfryer.
+            </p>
+          </div>
+
+          <div className="reviews-summary" data-reveal>
+            <div className="stars" aria-hidden="true">✦ ✦ ✦</div>
+            <strong>Una guía pensada para resolver dudas reales</strong>
+            <span>Recetas + planificación + cuidados en un mismo pack</span>
+          </div>
+
+          <div className="review-grid">
+            {communityVoices.map((voice, index) => (
+              <article className="review-card" data-reveal data-reveal-delay={index} key={voice.name}>
+                <span className="quote-mark" aria-hidden="true">“</span>
+                <blockquote>{voice.quote}</blockquote>
+                <div className="review-person">
+                  <span className="avatar" aria-hidden="true">{voice.initials}</span>
+                  <div>
+                    <strong>{voice.name}</strong>
+                    <small>{voice.label}</small>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <p className="review-disclaimer">
+            Comentarios representativos basados en necesidades frecuentes. Reemplazalos
+            por reseñas verificadas cuando recibas testimonios de compradores.
+          </p>
+          <div className="center-cta" data-reveal>
+            <BuyButton>QUIERO RESOLVER MIS COMIDAS</BuyButton>
+          </div>
+        </div>
+      </section>
+
       <section className="offer" id="oferta">
-        <div className="shell offer-card">
+        <div className="shell offer-card" data-reveal>
           <div className="offer-copy">
             <p className="eyebrow">APROVECHÁ AHORA</p>
             <h2>Todo lo que necesitás para sacarle verdadero provecho a tu airfryer.</h2>
@@ -269,7 +365,7 @@ export default function Home() {
       </section>
 
       <section className="faq">
-        <div className="shell faq-wrap">
+        <div className="shell faq-wrap" data-reveal>
           <div className="section-heading compact left">
             <p className="eyebrow">PREGUNTAS FRECUENTES</p>
             <h2>Antes de empezar</h2>
@@ -296,7 +392,7 @@ export default function Home() {
       </section>
 
       <section className="last-call">
-        <div className="shell">
+        <div className="shell" data-reveal>
           <p className="eyebrow">TU AIRFRYER PUEDE HACER MUCHO MÁS</p>
           <h2>Hoy podés dejar de improvisar y empezar a cocinar con variedad.</h2>
           <div className="last-price"><del>USD 59,99</del><strong>USD 10,99</strong></div>
