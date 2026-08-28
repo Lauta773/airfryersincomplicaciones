@@ -1,7 +1,7 @@
 import CheckoutLink from "./CheckoutLink";
 import MotionEffects from "./MotionEffects";
 
-const CHECKOUT = "https://pay.hotmart.com/K107213143H";
+const CHECKOUT = "https://pay.hotmart.com/K107213143H?checkoutMode=10";
 
 const recipes = [
   {
