@@ -165,6 +165,15 @@ export default function Home() {
             />
           </div>
         </div>
+
+        <a
+          className="scroll-cue"
+          href="#descubrir"
+          aria-label="Deslizá para descubrir todo lo que incluye el pack"
+        >
+          <span>DESLIZÁ PARA DESCUBRIR</span>
+          <span className="scroll-cue-icon" aria-hidden="true" />
+        </a>
       </section>
 
       <div className="trust-ribbon" aria-label="Ventajas de la compra">
@@ -180,7 +189,7 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="quick-win">
+      <section className="quick-win" id="descubrir">
         <div className="shell">
           <div className="section-heading compact" data-reveal>
             <p className="eyebrow">¿TE SUENA FAMILIAR?</p>
