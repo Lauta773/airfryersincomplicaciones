@@ -1,6 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import CheckoutLink from "./CheckoutLink";
+
+const CHECKOUT = "https://pay.hotmart.com/K107213143H?checkoutMode=10";
 
 const reviews = [
   { src: "/assets/opinion-01.webp", alt: "Opiniones de Sandy, Rocío y Liz sobre la entrega y el contenido" },
@@ -85,7 +88,9 @@ export default function ReviewsCarousel() {
         </div>
 
         <div className="center-cta" data-reveal>
-          <a className="buy-button" href="#oferta"><span>QUIERO RECIBIR MI EBOOK</span><b aria-hidden="true">→</b></a>
+          <CheckoutLink className="buy-button" href={CHECKOUT}>
+            <span>QUIERO RECIBIR MI EBOOK</span><b aria-hidden="true">→</b>
+          </CheckoutLink>
         </div>
       </div>
     </section>
