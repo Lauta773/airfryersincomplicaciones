@@ -1,28 +1,39 @@
 import CheckoutLink from "./CheckoutLink";
 import MotionEffects from "./MotionEffects";
+import ReviewsCarousel from "./ReviewsCarousel";
 
 const CHECKOUT = "https://pay.hotmart.com/K107213143H?checkoutMode=10";
 
 const recipes = [
   {
-    src: "/assets/receta-9-009.webp",
-    title: "Desayunos y meriendas",
-    detail: "Tostadas francesas, muffins, granola y más",
+    src: "/assets/muestra-tostadas-francesas.webp",
+    title: "Tostadas francesas con canela",
+    detail: "Desayunos y meriendas · Receta 0001",
   },
   {
-    src: "/assets/receta-41-041.webp",
-    title: "Pollo fácil y sabroso",
-    detail: "Recetas claras con tiempo y temperatura",
+    src: "/assets/muestra-bastones-mozzarella.webp",
+    title: "Bastones de mozzarella",
+    detail: "Entradas y bocados crujientes · Receta 0017",
   },
   {
-    src: "/assets/receta-78-078.webp",
-    title: "Pescados y mariscos",
-    detail: "Opciones rápidas para todos los días",
+    src: "/assets/muestra-pollo-limon.webp",
+    title: "Pechugas al limón y hierbas",
+    detail: "Pollo · Receta 0361",
   },
   {
-    src: "/assets/receta-121-121.webp",
-    title: "Panadería y postres",
-    detail: "Budines, brownies, panes y dulces",
+    src: "/assets/muestra-bife-romero.webp",
+    title: "Bife con ajo y romero",
+    detail: "Carne vacuna y cerdo · Receta 0511",
+  },
+  {
+    src: "/assets/muestra-salmon-limon.webp",
+    title: "Salmón al limón y eneldo",
+    detail: "Pescados y mariscos · Receta 0616",
+  },
+  {
+    src: "/assets/muestra-budin-banana.webp",
+    title: "Budín de banana y chocolate",
+    detail: "Panadería y postres · Receta 0896",
   },
 ];
 
@@ -59,30 +70,6 @@ const bonuses = [
   },
 ];
 
-const communityVoices = [
-  {
-    initials: "01",
-    name: "Más variedad",
-    label: "Necesidad frecuente",
-    quote:
-      "Quiero dejar de preparar siempre papas y tener opciones claras para toda la semana.",
-  },
-  {
-    initials: "02",
-    name: "Cocinar con confianza",
-    label: "Necesidad frecuente",
-    quote:
-      "Lo que más necesito es saber el tiempo y la temperatura sin estar adivinando.",
-  },
-  {
-    initials: "03",
-    name: "Organizar la semana",
-    label: "Necesidad frecuente",
-    quote:
-      "Tener un menú y las listas de compras juntas me ayudaría muchísimo a resolver cada día.",
-  },
-];
-
 function BuyButton({
   children,
   className = "",
@@ -114,21 +101,21 @@ export default function Home() {
           <div className="hero-copy" data-reveal>
             <p className="eyebrow">COLECCIÓN DIGITAL + 5 BONOS</p>
             <h1>
-              Dejá de usar tu airfryer para hacer <em>siempre lo mismo.</em>
+              Dejá de preguntarte <em>“¿qué cocino hoy?”</em>
             </h1>
             <p className="hero-lead">
-              Descubrí recetas fáciles, económicas y sabrosas para resolver
-              desayunos, almuerzos, cenas, panes y postres sin complicarte.
+              Descubrí 1.000 recetas fáciles, económicas y sabrosas para convertir
+              tu airfryer en la solución de todos los días.
             </p>
 
             <div className="hero-stats" aria-label="Contenido incluido">
               <div>
-                <strong>+180</strong>
-                <span>recetas en total</span>
+                <strong>1.000</strong>
+                <span>recetas numeradas</span>
               </div>
               <div>
-                <strong>283</strong>
-                <span>páginas digitales</span>
+                <strong>8</strong>
+                <span>categorías completas</span>
               </div>
               <div>
                 <strong>5</strong>
@@ -155,12 +142,12 @@ export default function Home() {
 
           <div className="hero-visual" data-reveal data-reveal-delay="1" aria-label="Mockup del ebook Airfryer sin complicaciones">
             <span className="bonus-bubble">+5 BONOS</span>
-            <span className="recipe-bubble">120 RECETAS</span>
+            <span className="recipe-bubble">1.000<br />RECETAS</span>
             <img
-              src="/assets/mockup-airfryer.webp"
-              alt="Ebook Airfryer sin complicaciones con 120 recetas"
-              width={1100}
-              height={1555}
+              src="/assets/mockup-airfryer-1000.webp"
+              alt="Ebook Airfryer sin complicaciones con 1.000 recetas fáciles, económicas y sabrosas"
+              width={1449}
+              height={2048}
               fetchPriority="high"
             />
           </div>
@@ -239,7 +226,8 @@ export default function Home() {
             <h2>Elegí qué querés comer. El paso a paso ya está resuelto.</h2>
             <p>
               Cada receta incluye ingredientes, porciones, preparación, cocción,
-              temperatura y una clave para que salga bien.
+              temperatura, una imagen y una clave para que salga bien. Estas páginas
+              son muestras reales del ebook que vas a recibir.
             </p>
           </div>
 
@@ -303,48 +291,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="reviews" id="opiniones">
-        <div className="shell">
-          <div className="section-heading" data-reveal>
-            <p className="eyebrow">LO QUE MÁS BUSCA NUESTRA COMUNIDAD</p>
-            <h2>Más variedad, más seguridad y menos tiempo pensando qué cocinar.</h2>
-            <p>
-              Estas son algunas de las necesidades que más se repiten entre quienes
-              quieren aprovechar mejor su airfryer.
-            </p>
-          </div>
-
-          <div className="reviews-summary" data-reveal>
-            <div className="stars" aria-hidden="true">✦ ✦ ✦</div>
-            <strong>Una guía pensada para resolver dudas reales</strong>
-            <span>Recetas + planificación + cuidados en un mismo pack</span>
-          </div>
-
-          <div className="review-grid">
-            {communityVoices.map((voice, index) => (
-              <article className="review-card" data-reveal data-reveal-delay={index} key={voice.name}>
-                <span className="quote-mark" aria-hidden="true">“</span>
-                <blockquote>{voice.quote}</blockquote>
-                <div className="review-person">
-                  <span className="avatar" aria-hidden="true">{voice.initials}</span>
-                  <div>
-                    <strong>{voice.name}</strong>
-                    <small>{voice.label}</small>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <p className="review-disclaimer">
-            Comentarios representativos basados en necesidades frecuentes. Reemplazalos
-            por reseñas verificadas cuando recibas testimonios de compradores.
-          </p>
-          <div className="center-cta" data-reveal>
-            <BuyButton>QUIERO RESOLVER MIS COMIDAS</BuyButton>
-          </div>
-        </div>
-      </section>
+      <ReviewsCarousel />
 
       <section className="offer" id="oferta">
         <div className="shell offer-card" data-reveal>
@@ -352,9 +299,9 @@ export default function Home() {
             <p className="eyebrow">APROVECHÁ AHORA</p>
             <h2>Todo lo que necesitás para sacarle verdadero provecho a tu airfryer.</h2>
             <ul>
-              <li><span>✓</span> Ebook principal con 120 recetas</li>
+              <li><span>✓</span> Ebook principal con 1.000 recetas numeradas</li>
               <li><span>✓</span> Menú completo de 30 días</li>
-              <li><span>✓</span> 60 recetas extra: saludables, panes y postres</li>
+              <li><span>✓</span> Ocho categorías: desayunos, carnes, pescados, verduras, comidas completas y más</li>
               <li><span>✓</span> Tabla maestra de tiempos y temperaturas</li>
               <li><span>✓</span> Guía de limpieza, cuidado y errores frecuentes</li>
             </ul>

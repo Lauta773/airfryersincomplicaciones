@@ -27,6 +27,7 @@ export default function MotionEffects() {
       const height = document.documentElement.scrollHeight - window.innerHeight;
       const progress = height > 0 ? Math.min(window.scrollY / height, 1) : 0;
       root.style.setProperty("--scroll-progress", progress.toString());
+      root.classList.toggle("has-scrolled", window.scrollY > 120);
       ticking = false;
     };
     const onScroll = () => {
@@ -43,6 +44,7 @@ export default function MotionEffects() {
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
       root.classList.remove("motion-ready");
+      root.classList.remove("has-scrolled");
       root.style.removeProperty("--scroll-progress");
     };
   }, []);

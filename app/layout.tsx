@@ -3,9 +3,21 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Airfryer sin complicaciones | +120 recetas y 5 bonos",
+  metadataBase: new URL("https://airfryer-sin-complicaciones.tsdmv.chatgpt.site"),
+  title: "Airfryer sin complicaciones | 1.000 recetas y 5 bonos",
   description:
-    "Más de 120 recetas, un menú de 30 días y 5 bonos para cocinar variado, conocer los tiempos correctos y aprovechar tu airfryer.",
+    "1.000 recetas fáciles, económicas y sabrosas para airfryer, organizadas en ocho categorías, con imágenes, tiempos, temperaturas y 5 bonos incluidos.",
+  openGraph: {
+    title: "Airfryer sin complicaciones | 1.000 recetas",
+    description: "1.000 recetas fáciles, económicas y sabrosas, con imágenes, tiempos, temperaturas y 5 bonos incluidos.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Airfryer sin complicaciones - 1.000 recetas" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Airfryer sin complicaciones | 1.000 recetas",
+    description: "1.000 recetas fáciles, económicas y sabrosas para aprovechar tu airfryer.",
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({

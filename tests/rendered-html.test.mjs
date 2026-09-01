@@ -32,5 +32,5 @@ test("renders production landing metadata", async () => {
   const html = await response.text();
   assert.doesNotMatch(html, developmentPreviewMeta);
   assert.match(html, /Airfryer sin complicaciones/i);
-  assert.match(html, /120 recetas/i);
+  assert.match(html, /1\.000 recetas/i);
 });
